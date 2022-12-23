@@ -1,0 +1,102 @@
+	local AudioPlayerGUI = Instance.new("ScreenGui")
+	local AudioPlayer = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local Start = Instance.new("TextButton")
+	local UICorner_2 = Instance.new("UICorner")
+	local Stop = Instance.new("TextButton")
+	local UICorner_3 = Instance.new("UICorner")
+	local TextLabel = Instance.new("TextLabel")
+	local Close = Instance.new("TextButton")
+	local UICorner_4 = Instance.new("UICorner")
+	local Audio = Instance.new("TextBox")
+	local UICorner_5 = Instance.new("UICorner")
+
+	AudioPlayerGUI.Name = "AudioPlayerGUI"
+	AudioPlayerGUI.Parent = game.CoreGui
+
+	AudioPlayer.Name = "AudioPlayer"
+	AudioPlayer.Parent = AudioPlayerGUI
+	AudioPlayer.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	AudioPlayer.BackgroundTransparency = 0.500
+	AudioPlayer.BorderColor3 = Color3.fromRGB(25, 25, 25)
+	AudioPlayer.Position = UDim2.new(0.412803173, 0, 0.874169409, 0)
+	AudioPlayer.Size = UDim2.new(0, 313, 0, 158)
+	AudioPlayer.Visible = true
+	AudioPlayer.Active = true
+	AudioPlayer.Draggable = true
+
+	UICorner.Parent = AudioPlayer
+
+	Start.Name = "Start"
+	Start.Parent = AudioPlayer
+	Start.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	Start.BackgroundTransparency = 0.600
+	Start.Position = UDim2.new(0.0478115603, 0, 0.426290154, 0)
+	Start.Size = UDim2.new(0, 112, 0, 54)
+	Start.Font = Enum.Font.SciFi
+	Start.Text = "Start"
+	Start.TextColor3 = Color3.fromRGB(255, 170, 0)
+	Start.TextScaled = true
+	Start.TextSize = 14.000
+	Start.TextWrapped = true
+
+	UICorner_2.Parent = Start
+
+	Stop.Name = "Stop"
+	Stop.Parent = AudioPlayer
+	Stop.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	Stop.BackgroundTransparency = 0.600
+	Stop.Position = UDim2.new(0.607025921, 0, 0.426290154, 0)
+	Stop.Size = UDim2.new(0, 112, 0, 54)
+	Stop.Font = Enum.Font.SciFi
+	Stop.Text = "Stop"
+	Stop.TextColor3 = Color3.fromRGB(255, 170, 0)
+	Stop.TextScaled = true
+	Stop.TextSize = 14.000
+	Stop.TextWrapped = true
+
+	UICorner_3.Parent = Stop
+
+	TextLabel.Parent = AudioPlayer
+	TextLabel.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	TextLabel.BackgroundTransparency = 0.600
+	TextLabel.Position = UDim2.new(0, 0, 0.818695426, 0)
+	TextLabel.Size = UDim2.new(0, 313, 0, 28)
+	TextLabel.Font = Enum.Font.SciFi
+	TextLabel.Text = "Syr0nix Audio"
+	TextLabel.TextColor3 = Color3.fromRGB(255, 170, 0)
+	TextLabel.TextScaled = true
+	TextLabel.TextSize = 14.000
+	TextLabel.TextWrapped = true
+
+	Audio.Name = "Audio"
+	Audio.Parent = AudioPlayer
+	Audio.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+	Audio.BackgroundTransparency = 0.400
+	Audio.Position = UDim2.new(0.218564272, 0, 0.0950340778, 0)
+	Audio.Size = UDim2.new(0, 189, 0, 37)
+	Audio.Font = Enum.Font.SciFi
+	Audio.Text = ""
+	Audio.TextColor3 = Color3.fromRGB(255, 170, 0)
+	Audio.TextSize = 14.000
+
+	UICorner_5.Parent = Audio
+
+
+	local function NBWF_fake_script() 
+		local script = Instance.new('LocalScript', Start)
+
+		script.Parent.MouseButton1Click:Connect(function()
+			local Audio = script.Parent.Parent.Audio.Text
+			game.ReplicatedStorage.MasterKey:FireServer("PlayMusic", tonumber(Audio), "\230\139\154\230\136\172i\235\156\146(\238\138\155\201\172XD")
+		end)
+	end
+	coroutine.wrap(NBWF_fake_script)()
+	local function ZOJMK_fake_script()
+		local script = Instance.new('LocalScript', Stop)
+
+		script.Parent.MouseButton1Click:Connect(function()
+			game.ReplicatedStorage.MasterKey:FireServer("StopMusic", nil, "\230\139\154\230\136\172i\235\156\146(\238\138\155\201\172XD")
+		end)
+	end
+	coroutine.wrap(ZOJMK_fake_script)()
